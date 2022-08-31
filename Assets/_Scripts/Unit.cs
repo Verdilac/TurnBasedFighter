@@ -15,8 +15,14 @@ public class Unit : MonoBehaviour
     [SerializeField] private float moveSpeed = 4f;   
     [SerializeField] private float rotateSpeed = 10f;
     private float stoppingDistance = 0.1f;
- 
-    
+
+
+
+
+    private void Awake()
+    {
+        targetPosition = transform.position;
+    }
 
 
     private void Start()
@@ -29,20 +35,23 @@ public class Unit : MonoBehaviour
 
 
 
+
     private void Update()
     {
         UpdatePosition();
     
-
-
-  
     }
 
 
-    private void Move(Vector3 targetPosition)
-    {
-        this.targetPosition = targetPosition;
-    }
+
+
+
+
+
+
+
+
+
 
 
     private void UpdatePosition()
@@ -65,15 +74,14 @@ public class Unit : MonoBehaviour
             unitAnimator.SetBool("IsWalking", false);
         }
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Move(MouseWorld.GetPosition());
-
-        }
     }
 
-   
+
+    public void Move(Vector3 targetPosition)
+    {
+        this.targetPosition = targetPosition;
+    }
+
 
 
 
