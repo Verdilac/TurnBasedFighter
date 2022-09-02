@@ -1,5 +1,5 @@
 
-
+//Grid Struct
 public struct GridPosition 
 { 
     public int x;
